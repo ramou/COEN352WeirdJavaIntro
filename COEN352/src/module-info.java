@@ -1,9 +1,2 @@
-/**
- * 
- */
-/**
- * @author ramou
- *
- */
-module COEN352 {
+module COEN352WeirdJavaIntro {
 }

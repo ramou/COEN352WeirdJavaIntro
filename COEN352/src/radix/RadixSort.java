@@ -19,11 +19,17 @@ public class RadixSort {
 		try {
 			System.out.println(b.getClass().getConstructors()[0].newInstance(42));
 			
-			for(Method m : Class.forName("radix.RadixSort").getMethods())  {
-				if(!m.getName().equals("main")) continue;
-				System.out.println(m.getName());
-				m.invoke(null, "", "");
-			}
+			Method m = Class.forName("radix.RadixSort").getMethod("main", String[].class);
+			
+			//We couldn't pass it args because it was treating that as the sequence of arguments, 
+			//so we had to wrap our string array in an object array so it was the first of a set 
+			//of arguments... oh, this brings back memories.
+			Object[] newArgs = new Object[1];
+			newArgs[0] = args;
+
+			//INFINITE LOOP!
+			m.invoke(null, newArgs);
+
 			
 		} catch (Exception e) {
 			e.printStackTrace(); 
